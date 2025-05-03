@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Gelombang</title>
+</head>
+<body>
+    <header>
+        <h1>Kalkulator Gelombang</h1>
+        <p>Hitung parameter gelombang dengan mudah!</p>
+    </header>
+
+    <div class="container">
+        <div class="operation">
+            <h2>Hitung Cepat Rambat Gelombang</h2>
+            <input type="text" id="F" placeholder="λ (panjang gelombang dalam meter)" required>
+            <input type="text" id="F1" placeholder="T (periode dalam detik)" required>
+            <button onclick="hitungCepatRambat()">Hitung v = λ/T</button>
+            <p id="Hasil">hasil</p>
+        </div>
+        <div class="operation">
+            <h2>Hitung Frekuensi Gelombang</h2>
+            <input type="text" id="Fa" placeholder="v (cepat rambat dalam m/s)" required>
+            <input type="text" id="Fx" placeholder="λ (panjang gelombang dalam meter)" required>
+            <input type="text" id="Fy" placeholder="T (periode dalam detik)" required>
+            <input type="text" id="theta" placeholder="A (amplitudo dalam meter)" required>
+            <button onclick="hitungFrekuensi()">Hitung f = 1/T</button>
+            <p id="hasil">hasil</p>
+        </div>
+        <div class="operation">
+            <h2>Hitung Panjang Gelombang</h2>
+            <input type="text" id="v1" placeholder="v (cepat rambat dalam m/s)" required>
+            <input type="text" id="T1" placeholder="T (periode dalam detik)" required>
+            <button onclick="hitungPanjangGelombang()">Hitung λ = v × T</button>
+            <p id="hasilPanjang">hasil</p>
+        </div>
+        <div class="operation">
+            <h2>Hitung Periode Gelombang</h2>
+            <input type="text" id="lambda1" placeholder="λ (panjang gelombang dalam meter)" required>
+            <input type="text" id="v2" placeholder="v (cepat rambat dalam m/s)" required>
+            <button onclick="hitungPeriode()">Hitung T = λ/v</button>
+            <p id="hasilPeriode">hasil</p>
+        </div>
+        <div class="operation">
+            <h2>Hitung Amplitudo Gelombang</h2>
+            <input type="text" id="ymax" placeholder="y max (simpangan maksimum dalam meter)" required>
+            <button onclick="hitungAmplitudo()">Hitung A = y max</button>
+            <p id="hasilAmplitudo">hasil</p>
+        </div>
+        <div class="link">
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2024 Kalkulator Gelombang. by: Akmal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

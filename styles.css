@@ -6,41 +6,53 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    height: 10000px;
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    min-height: 100vh;
 }
 
 header {
-    /* position: fixed; */
-    background-color: #333;
+    background: linear-gradient(to right, #2c3e50, #3498db);
     color: white;
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 h1 {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 marquee {
     font-size: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #ecf0f1;
 }
 
 input[type="text"] {
-    padding: 10px;
+    padding: 15px;
     width: 80%;
     max-width: 400px;
     margin: 0 auto;
     display: block;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    outline: none;
 }
 
 main {
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .dictionary {
@@ -48,41 +60,74 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     text-decoration: none;
+    gap: 25px;
 }
 
 .term {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     margin: 10px;
-    padding: 20px;
-    width: calc(50% - 40px); /* Set 50% untuk tampilan desktop */
+    padding: 25px;
+    width: calc(50% - 40px);
     box-sizing: border-box;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.term:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    background: rgba(255,255,255,1);
 }
 
 .term a {
-    text-decoration: none;  /* Menghilangkan garis bawah pada link */
-    display: inline-block;  /* Agar bisa menggunakan efek transform */
-    transition: transform 0.3s ease;  /* Menambahkan transisi halus */
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    transition: all 0.3s ease;
 }
 
 .term a:hover {
-    text-decoration: underline;  /* Memastikan tidak ada garis bawah saat hover */
-    transform: translateY(-10px);  /* Teks akan bergerak sedikit ke atas */
+    text-decoration: none;
+    color: #3498db;
 }
 
 .term h2 {
-    color: #333;
-    margin-bottom: 10px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.term h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
 }
 
 .term p {
-    color: #666;
-    
+    color: #34495e;
+    line-height: 1.8;
+    font-size: 1.1em;
 }
 
 @media screen and (max-width: 768px) {
     .term {
-        width: calc(100% - 40px); /* Set 100% untuk tampilan mobile */
+        width: calc(100% - 40px);
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .term h2 {
+        font-size: 1.5em;
     }
 }
