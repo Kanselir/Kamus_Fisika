@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Vektor</title>
+</head>
+<body>
+    <header>
+        <h1>Kalkulator Vektor</h1>
+        <p>Hitung operasi vektor dengan mudah!</p>
+    </header>
+
+    <div class="container">
+        <div class="operation">
+            <h2>Menentukan Resultan</h2>
+            <input type="number" id="X" placeholder="sumbu X " required>
+            <input type="number" id="Y" placeholder="sumbu Y" required>
+            <button onclick="addVectors()">Resultan</button>
+            <p id="addResult"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Pengurangan Vektor</h2>
+            <input type="number" id="B1" placeholder="B1" required>
+            <input type="number" id="B2" placeholder="B2" required>
+            <button onclick="subtractVectors()">Hitung A - B</button>
+            <p id="subResult"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Menentukan Resultan dengan sudut</h2>
+            <input type="number" id="C1" placeholder="Sumbu X" required>
+            <input type="number" id="C2" placeholder="Sumbu Y" required>
+            <input type="number" id="C3" placeholder="Sudut" required>
+            <button onclick="sudutVectors()">Resultan</button>
+            <p id="sudutResult"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Dot Product dua vektor</h2>
+            <input type="text" id="D1" placeholder="contoh: i, j, k" required>
+            <input type="text" id="D2" placeholder="contoh: i, j, k" required>
+            <button onclick="dotProduct()">Hitung A • B</button>
+            <p id="dotResult"></p>
+        </div>
+
+        <!-- <div class="operation">
+            <h2>Cross Product</h2>
+            <input type="number" id="D1" placeholder="D1" required>
+            <input type="number" id="D2" placeholder="D2" required>
+            <button onclick="crossProduct()">Hitung A × B</button>
+            <p id="crossResult"></p>
+        </div> -->
+    </div>
+
+    <footer>
+        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

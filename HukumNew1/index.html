@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Hukum Newton I</title>
+</head>
+<body>
+    <header>
+        <h1>Kalkulator Hukum Newton I</h1>
+        <p>Hitung operasi Hukum Newton I dengan mudah!</p>
+    </header>
+
+    <div class="container">
+        <div class="operation">
+            <h2>Masukkan semua gaya</h2>
+            <input type="text" id="F" placeholder="∑F (semua gaya yang ke kanan)" required>
+            <input type="text" id="F1" placeholder="∑F (semua gaya yang ke kiri)" required>
+            <button onclick="hukumnw()">HK 1</button>
+            <p id="Hasil">hasil</p>
+        </div>
+        <div class="operation">
+            <h2>Menentukan Fx dan Fy</h2>
+            <input type="text" id="Fa" placeholder="F (dalam besaran Newton)" required>
+            <input type="text" id="Fx" placeholder="Fx (dalam besaran Newton)" required>
+            <input type="text" id="Fy" placeholder="Fy (dalam besaran Newton)" required>
+            <input type="text" id="theta" placeholder="masukkan besar sudut" required>
+            <button onclick="hitungKomponenGaya()">HK 1</button>
+            <p id="hasil">hasil</p>
+        </div>
+        <div class="link">
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+            <a href="">Kembali</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

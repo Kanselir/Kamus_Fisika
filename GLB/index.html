@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kalkulator GLB</title>
+</head>
+<body>
+    <header>
+        <h1>Kalkulator GlB</h1>
+        <p>Hitung operasi GlB dengan mudah!</p>
+    </header>
+
+    <div class="container">
+        <div class="operation">
+            <h2>Menentukan jarak</h2>
+            <input type="number" id="V" placeholder="Masukkan kecepatan (m)" required>
+            <input type="number" id="t" placeholder="Masukkan waktu (s)" required>
+            <button onclick="addjarak()">Hasil</button>
+            <p id="addResult"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Perhitungan Perpindahan</h2>
+            <input type="number" id="Vp" placeholder="Masukkan kecepatan (m)" required>
+            <input type="number" id="tp" placeholder="Masukkan waktu (s)" required>
+            <button onclick="perpindahan()">Hasil</button>
+            <p id="subResult"> hasil</p>
+        </div>
+
+        <div class="operation">
+            <h2>Perhitungan Kecepatan</h2>
+            <input type="number" id="PK" placeholder="Masukkan perpindahan (m)" required>
+            <input type="number" id="WK" placeholder="Masukkan waktu (s)" required>
+            <button onclick="kecepatatan()">Hasil</button>
+            <p id="kecepatanResult"> hasil</p>
+        </div>
+
+        <div class="operation">
+            <h2>Perhitungan Laju</h2>
+            <input type="number" id="JL" placeholder="Masukkan jarak (m)" required>
+            <input type="number" id="WL" placeholder="Masukkan waktu (s)" required>
+            <button onclick="laju()">Hasil</button>
+            <p id="lajuResult"> hasil</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
