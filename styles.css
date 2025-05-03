@@ -29,7 +29,16 @@ h1 {
 marquee {
     font-size: 25px;
     margin-bottom: 20px;
-    color: #ecf0f1;
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% { color: #ff0000; }  /* Merah */
+    20% { color: #ff9900; } /* Oranye */
+    40% { color: #33cc33; } /* Hijau */
+    60% { color: #3399ff; } /* Biru */
+    80% { color: #9933ff; } /* Ungu */
+    100% { color: #ff0000; } /* Kembali ke merah */
 }
 
 input[type="text"] {
