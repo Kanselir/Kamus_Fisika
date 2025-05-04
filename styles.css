@@ -29,16 +29,17 @@ h1 {
 marquee {
     font-size: 25px;
     margin-bottom: 20px;
-    animation: colorChange 5s infinite;
+    animation: colorChange 8s infinite;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 @keyframes colorChange {
-    0% { color: #ff0000; }  /* Merah */
-    20% { color: #ff9900; } /* Oranye */
-    40% { color: #33cc33; } /* Hijau */
-    60% { color: #3399ff; } /* Biru */
-    80% { color: #9933ff; } /* Ungu */
-    100% { color: #ff0000; } /* Kembali ke merah */
+    0% { color: #ff1493; }   /* Deep pink */
+    20% { color: #ff4500; }  /* Orange red */ 
+    40% { color: #9400d3; }  /* Dark violet */
+    60% { color: #ff1493; }  /* Deep pink */
+    80% { color: #ff4500; }  /* Orange red */
+    100% { color: #9400d3; } /* Dark violet */
 }
 
 input[type="text"] {

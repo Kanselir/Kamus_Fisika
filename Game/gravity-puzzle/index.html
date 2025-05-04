@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Puzzle - Pusat Permainan Fisika</title>
+    <link rel="stylesheet" href="../games.css">
+    <link rel="stylesheet" href="game.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .game-area {
+            width: 100%;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: var(--background-dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--hover-glow);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Gravity Puzzle</h1>
+        <div class="level-info">Level 1 dari 3</div>
+        
+        <div class="game-area">
+            <div class="grid"></div>
+            <div class="ball"></div>
+        </div>
+
+        <div class="controls">
+            <button class="control-button" type="button" data-direction="up">↑</button>
+            <button class="control-button" type="button" data-direction="left">←</button>
+            <button class="control-button" type="button" data-direction="right">→</button>
+            <button class="control-button" type="button" data-direction="down">↓</button>
+        </div>
+
+        <div class="instructions">
+            <h3>Cara Bermain:</h3>
+            <ul>
+                <li>Gunakan tombol panah atau tombol kontrol untuk mengubah arah gravitasi</li>
+                <li>Bola akan bergerak sesuai arah gravitasi yang dipilih</li>
+                <li>Hindari lubang (kotak merah) dan tembok (kotak abu-abu)</li>
+                <li>Capai bendera (kotak hijau) untuk menyelesaikan level</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-button">Kembali ke Pusat Permainan</a>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html> 
