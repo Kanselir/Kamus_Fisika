@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const avatarDiv = document.createElement('div');
         avatarDiv.className = 'message-avatar';
         const avatarImg = document.createElement('img');
-        avatarImg.src = sender === 'user' ? 'user-avatar.png' : 'ai-avatar.png';
+        avatarImg.src = sender === 'user' ? 'img/user.jpg' : 'img/logo.png';
         avatarImg.alt = sender === 'user' ? 'User' : 'AI';
         avatarDiv.appendChild(avatarImg);
         messageDiv.appendChild(avatarDiv);
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const avatarDiv = document.createElement('div');
         avatarDiv.className = 'message-avatar';
         const avatarImg = document.createElement('img');
-        avatarImg.src = 'ai-avatar.png';
+        avatarImg.src = 'img/logo.png';
         avatarImg.alt = 'AI';
         avatarDiv.appendChild(avatarImg);
         thinkingMessage.appendChild(avatarDiv);
