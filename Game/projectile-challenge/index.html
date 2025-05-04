@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projectile Challenge - Pusat Permainan Fisika</title>
     <link rel="stylesheet" href="../games.css">
+    <link rel="stylesheet" href="game.css">
     <style>
         .game-container {
             max-width: 800px;
@@ -44,24 +45,51 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Projectile Challenge</h1>
-        </header>
+    <div class="game-container">
+        <h1>Projectile Challenge</h1>
+        <div class="level-info">Level 1 dari 3</div>
+        
+        <div class="game-area">
+            <div class="cannon">
+                <div class="cannon-base"></div>
+                <div class="cannon-barrel"></div>
+            </div>
+            <div class="projectile"></div>
+            <div class="target"></div>
+            <div class="obstacle"></div>
+            <canvas id="trajectory"></canvas>
+        </div>
 
-        <div class="game-container">
-            <h2>Permainan Akan Segera Hadir</h2>
-            <p>Kuasai seni gerak parabola dan tembak target dengan presisi menggunakan prinsip fisika.</p>
+        <div class="controls">
+            <div class="control-group">
+                <label for="angle">Sudut (°):</label>
+                <input type="range" id="angle" min="0" max="90" value="45" class="slider">
+                <span class="value-display" id="angle-value">45°</span>
+            </div>
             
-            <div class="game-area">
-                <!-- Game content will be added here -->
-                <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    Permainan dalam pengembangan
-                </p>
+            <div class="control-group">
+                <label for="velocity">Kecepatan (m/s):</label>
+                <input type="range" id="velocity" min="5" max="500" value="100" class="slider">
+                <span class="value-display" id="velocity-value">100 m/s</span>
             </div>
 
-            <a href="../index.html" class="back-button">Kembali ke Pusat Permainan</a>
+            <button id="shoot" class="action-button">Tembak!</button>
+            <button id="reset" class="action-button">Reset</button>
         </div>
+
+        <div class="instructions">
+            <h3>Cara Bermain:</h3>
+            <ul>
+                <li>Atur sudut dan kecepatan tembakan menggunakan slider</li>
+                <li>Tekan tombol "Tembak!" untuk meluncurkan proyektil</li>
+                <li>Hindari rintangan dan mengenai target untuk menyelesaikan level</li>
+                <li>Gunakan tombol "Reset" untuk mengulang percobaan</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-button">Kembali ke Pusat Permainan</a>
     </div>
+
+    <script src="game.js"></script>
 </body>
 </html> 

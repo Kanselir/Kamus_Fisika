@@ -169,35 +169,59 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
 
-        // Simulate AI response (replace with actual API call)
-        setTimeout(() => {
+        // Prepare the request data
+        const requestData = {
+            message: userMessage,
+            mode: mode,
+            image: image,
+            isFeedbackReq: isFeedbackReq,
+            problemCtx: problemCtx
+        };
+
+        // Make API call to backend
+        fetch('/api/physic-chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
             // Remove thinking indicator
             thinkingMessage.remove();
             
-            let aiResponseContent = '';
+            // Add AI response
+            addMessage('ai', data.response);
             
-            if (mode === 'chat') {
-                aiResponseContent = `I understand you're asking about physics. Here's a detailed explanation...`;
-            } else if (mode === 'practice') {
-                if (isFeedbackReq && problemCtx) {
-                    aiResponseContent = `**Correct!** Your solution is well-reasoned and follows the correct principles of physics.`;
-                } else {
-                    aiResponseContent = `Here's a practice problem for you:\n\nA ball is thrown vertically upward with an initial velocity of 20 m/s. Calculate the maximum height it reaches.`;
-                    currentProblem = aiResponseContent;
-                    interactionState = 'awaiting_feedback';
-                }
-            } else if (mode === 'homework') {
-                if (image) {
-                    aiResponseContent = `Based on the image you provided, here's the solution to the physics problem...`;
-                } else {
-                    aiResponseContent = `Here's the solution to your homework problem...`;
-                }
+            // Update interaction state
+            if (mode === 'practice' && !isFeedbackReq) {
+                currentProblem = data.problem;
+                interactionState = 'awaiting_feedback';
+            } else {
+                interactionState = 'idle';
             }
-
-            addMessage('ai', aiResponseContent);
+            
+            updatePlaceholder();
+        })
+        .catch(error => {
+            // Remove thinking indicator
+            thinkingMessage.remove();
+            
+            // Show error message
+            addMessage('ai', 'Maaf, terjadi kesalahan. Silakan coba lagi nanti.');
+            
+            // Reset interaction state
             interactionState = 'idle';
             updatePlaceholder();
-        }, 1000);
+            
+            console.error('Error:', error);
+        });
     }
 
     // Initialize placeholder
