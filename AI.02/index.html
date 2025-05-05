@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mas Iyus Chat</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-header">
+            <h1>
+                <div class="avatar">
+                    <img src="img/logo.png" alt="Avatar">
+                </div>
+                Mas Iyus
+            </h1>
+            <div class="header-controls">
+                <div class="nav-buttons">
+                    <button class="nav-button active">Chat</button>
+                    <button class="nav-button">Practice</button>
+                    <button class="nav-button">Homework</button>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+        <div class="chat-container" id="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message visible">
+                    <div class="message-avatar">
+                        <img src="img/logo.png" alt="AI">
+                    </div>
+                    <div class="message-content">
+                        <p>Apa yg bisa saya bantu?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <textarea id="user-input" placeholder="Ask PhysiPal anything about physics..." rows="1"></textarea>
+                <button id="send-button" type="button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/aiconfig.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const icon = themeToggle.querySelector('i');
+            
+            // Check for saved theme preference or use default
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+            
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+            
+            // Set active nav button
+            const navButtons = document.querySelectorAll('.nav-button');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Apply the visible class to existing messages
+            document.querySelectorAll('.message').forEach(msg => {
+                msg.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html> 
