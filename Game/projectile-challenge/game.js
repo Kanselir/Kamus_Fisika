@@ -23,7 +23,7 @@ class ProjectileChallenge {
         this.isShooting = false;
         this.projectilePosition = { x: 0, y: 0 };
         this.projectileVelocity = { x: 0, y: 0 };
-        this.gravity = 0.5; // m/s² (dikurangi untuk membuat game lebih mudah)
+        this.gravity = 9.8; // m/s² (dikurangi untuk membuat game lebih mudah)
         this.timeStep = 0.016; // ~60fps
         this.airResistance = 0.01; // Hambatan udara dikurangi
         
