@@ -8,19 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .back-button {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.8rem;
             background: #4285f4;
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 20px;
             font-weight: bold;
             transition: all 0.3s ease;
-            margin-top: 1rem;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 100;
+            margin: 0 1rem;
+            font-size: 0.9rem;
         }
         
         .back-button:hover {
@@ -28,12 +26,15 @@
             background: #3367d6;
             box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
         }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back-button">
-        <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
-    </a>
     <div class="container">
         <div class="chat-header">
             <h1>
@@ -43,6 +44,9 @@
                 Mas Iyus
             </h1>
             <div class="header-controls">
+                <a href="../index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+                </a>
                 <div class="nav-buttons">
                     <button class="nav-button active">Chat</button>
                     <!-- <button class="nav-button">Practice</button>
