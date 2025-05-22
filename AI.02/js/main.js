@@ -13,26 +13,37 @@ let chatHistory = [];
 
 // Initialize the application when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing application...');
+    
     // Initialize Gemini AI configuration
     const initialized = GeminiConfig.initialize();
+    console.log('Gemini initialization status:', initialized);
     
     // Set up event listeners
     setupEventListeners();
+    console.log('Event listeners set up');
     
     // Auto-resize the input field as the user types
     setupInputAutoResize();
+    console.log('Input auto-resize set up');
 });
 
 /**
  * Set up event listeners for user interactions
  */
 function setupEventListeners() {
+    console.log('Setting up event listeners...');
+    
     // Send message when the send button is clicked
-    sendButton.addEventListener('click', handleSendMessage);
+    sendButton.addEventListener('click', () => {
+        console.log('Send button clicked');
+        handleSendMessage();
+    });
     
     // Send message when Enter key is pressed (without Shift)
     userInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' && !event.shiftKey) {
+            console.log('Enter key pressed');
             event.preventDefault();
             handleSendMessage();
         }
@@ -45,35 +56,47 @@ function setupEventListeners() {
 async function handleSendMessage() {
     // Get user input and trim whitespace
     const message = userInput.value.trim();
+    console.log('Handling message:', message);
     
     // Don't send empty messages
-    if (!message) return;
+    if (!message) {
+        console.log('Empty message, not sending');
+        return;
+    }
     
     try {
         // Add user message to the chat
         addMessageToChat('user', message);
+        console.log('User message added to chat');
         
         // Clear the input field
         userInput.value = '';
         
         // Show typing indicator
         showTypingIndicator();
+        console.log('Typing indicator shown');
         
         // Add message to history
         chatHistory.push({ role: 'user', content: message });
         
         // Get response from Gemini AI
+        console.log('Getting response from Gemini...');
         const response = await GeminiConfig.generateResponse(message);
+        console.log('Received response from Gemini:', response);
         
         // Hide typing indicator
         hideTypingIndicator();
+        console.log('Typing indicator hidden');
         
         // Add bot response to the chat
         addMessageToChat('bot', response);
+        console.log('Bot response added to chat');
         
         // Add response to history
         chatHistory.push({ role: 'bot', content: response });
     } catch (error) {
+        console.error('Error in handleSendMessage:', error);
+        
         // Hide typing indicator
         hideTypingIndicator();
         

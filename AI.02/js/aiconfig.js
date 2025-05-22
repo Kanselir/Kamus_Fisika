@@ -5,17 +5,17 @@
 
 // Configuration object for Gemini AI
 const GeminiConfig = {
+    // Your API key for accessing Gemini AI
+    API_KEY: 'AIzaSyBQg9KgkJT-BpZkC3SII7lmCN-x3a9Xt0g',
+    
     // API endpoint for Gemini Pro model
     API_URL: 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent',
     
     // Initialize Gemini with your API key
     initialize: function() {
-        // Get API key from environment variable or configuration
-        this.API_KEY = process.env.GEMINI_API_KEY || '';
-        
         // Validate API key
         if (!this.API_KEY) {
-            console.error('Please set your Gemini API key in the environment variables');
+            console.error('Please set your Gemini API key');
             displayError('API key not configured. Please set up your Gemini API key.');
             return false;
         }
@@ -123,4 +123,9 @@ function displayError(message) {
         chatMessages.appendChild(errorMessage);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-} 
+}
+
+// Initialize the Gemini API when the script loads
+document.addEventListener('DOMContentLoaded', function() {
+    GeminiConfig.initialize();
+}); 
