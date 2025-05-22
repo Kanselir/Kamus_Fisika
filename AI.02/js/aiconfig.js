@@ -6,10 +6,10 @@
 // Configuration object for Gemini AI
 const GeminiConfig = {
     // Your API key for accessing Gemini AI
-    API_KEY: 'AIzaSyBQg9KgkJT-BpZkC3SII7lmCN-x3a9Xt0g',
+    API_KEY: 'AIzaSyCRCddtqKt1Kg44_QMY3KY04WbhLL7IMnc',
     
     // API endpoint for Gemini Pro model
-    API_URL: 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent',
+    API_URL: 'https://generativelanguage.googleapis.com/v1/models',
     
     // Initialize Gemini with your API key
     initialize: function() {
@@ -20,7 +20,20 @@ const GeminiConfig = {
             return false;
         }
         console.log('Gemini API initialized successfully');
+        this.listAvailableModels();
         return true;
+    },
+    
+    listAvailableModels: async function() {
+        try {
+            const response = await fetch(`${this.API_URL}?key=${this.API_KEY}`);
+            const data = await response.json();
+            console.log('Available models:', data);
+            return data;
+        } catch (error) {
+            console.error('Error listing models:', error);
+            return null;
+        }
     },
     
     // Validate input prompt
@@ -41,20 +54,16 @@ const GeminiConfig = {
             this.validatePrompt(prompt);
             
             // Construct the request URL with API key
-            const requestUrl = `${this.API_URL}?key=${this.API_KEY}`;
+            const requestUrl = `${this.API_URL}/gemini-1.0-pro:generateContent?key=${this.API_KEY}`;
+            console.log('Sending request to:', requestUrl);
             
             // Prepare the request body
             const requestBody = {
-                contents: [
-                    {
-                        role: 'user',
-                        parts: [
-                            {
-                                text: prompt
-                            }
-                        ]
-                    }
-                ],
+                contents: [{
+                    parts: [{
+                        text: prompt
+                    }]
+                }],
                 generationConfig: {
                     temperature: 0.7,
                     topK: 40,
@@ -62,6 +71,8 @@ const GeminiConfig = {
                     maxOutputTokens: 1024
                 }
             };
+            
+            console.log('Request body:', JSON.stringify(requestBody, null, 2));
             
             // Make the API request
             const response = await fetch(requestUrl, {
@@ -72,9 +83,13 @@ const GeminiConfig = {
                 body: JSON.stringify(requestBody)
             });
             
+            console.log('Response status:', response.status);
+            
             // Handle response errors
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error('API Error Response:', errorData);
+                
                 if (response.status === 401) {
                     throw new Error('Authentication failed: Invalid API key');
                 } else if (response.status === 429) {
@@ -86,17 +101,15 @@ const GeminiConfig = {
             
             // Parse and return the response
             const data = await response.json();
+            console.log('Full Gemini API response:', data);
             
             // Extract the generated text from the response
-            if (data.candidates && data.candidates.length > 0 && 
-                data.candidates[0].content && 
-                data.candidates[0].content.parts && 
-                data.candidates[0].content.parts.length > 0) {
-                
-                return data.candidates[0].content.parts[0].text;
-            } else {
+            const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (!text) {
                 throw new Error('No valid response content found');
             }
+            
+            return text;
         } catch (error) {
             console.error('Error generating response:', error);
             if (error.name === 'TypeError' && error.message.includes('fetch')) {
