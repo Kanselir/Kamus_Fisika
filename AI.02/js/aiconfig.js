@@ -6,7 +6,7 @@
 // Configuration object for Gemini AI
 const GeminiConfig = {
     // Your API key for accessing Gemini AI
-    API_KEY: 'AIzaSyCtoZxbcyCrbu0OyVCXYOD-1wB61cORpK8',
+    API_KEY: 'AIzaSyBQg9KgkJT-BpZkC3SII7lmCN-x3a9Xt0g',
     
     // API endpoint for Gemini Pro model
     API_URL: 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent',
