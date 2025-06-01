@@ -1,28 +1,31 @@
-function addjarak() {
-    const V = parseFloat(document.getElementById('V').value);
+function hitungKecepatanAkhir() {
+    const v0 = parseFloat(document.getElementById('v0').value);
+    const a = parseFloat(document.getElementById('a').value);
     const t = parseFloat(document.getElementById('t').value);
-    const hasil = V * t
-    document.getElementById('addResult').innerText = `Jarak: ${hasil} meter`;
+    const hasil = v0 + (a * t);
+    document.getElementById('kecepatanAkhirResult').innerText = `Kecepatan Akhir: ${hasil.toFixed(2)} m/s`;
 }
 
-function perpindahan() {
-    const X = parseFloat(document.getElementById('Vp').value);
-    const Y = parseFloat(document.getElementById('tp').value);
-    const result = (X ** 2) - (Y ** 2);
-    const R = result ** (1/2);
-    document.getElementById('subResult').innerText = `Resultat: rumus perpindahan susah saya kurang bisa menjelaskannya`;
+function hitungJarak() {
+    const v0 = parseFloat(document.getElementById('v0J').value);
+    const a = parseFloat(document.getElementById('aJ').value);
+    const t = parseFloat(document.getElementById('tJ').value);
+    const hasil = (v0 * t) + (0.5 * a * Math.pow(t, 2));
+    document.getElementById('jarakResult').innerText = `Jarak: ${hasil.toFixed(2)} meter`;
 }
 
-function kecepatatan() {
-    const P = parseFloat(document.getElementById('PK').value);
-    const W = parseFloat(document.getElementById('WK').value);
-    const hasil = P / W;
-    document.getElementById('kecepatanResult').innerText = `kecepatan: ${hasil.toFixed(3)}`;
+function hitungKecepatanAkhirTanpaWaktu() {
+    const v0 = parseFloat(document.getElementById('v0K').value);
+    const a = parseFloat(document.getElementById('aK').value);
+    const s = parseFloat(document.getElementById('sK').value);
+    const hasil = Math.sqrt(Math.pow(v0, 2) + (2 * a * s));
+    document.getElementById('kecepatanAkhirTanpaWaktuResult').innerText = `Kecepatan Akhir: ${hasil.toFixed(2)} m/s`;
 }
 
-function laju() {
-    const J = parseFloat(document.getElementById('JL').value);
-    const W = parseFloat(document.getElementById('WL').value);
-    const hasil = J / W;
-    document.getElementById('lajuResult').innerText = `laju: ${hasil.toFixed(3)}`;
+function hitungPerpindahan() {
+    const v0 = parseFloat(document.getElementById('v0P').value);
+    const a = parseFloat(document.getElementById('aP').value);
+    const t = parseFloat(document.getElementById('tP').value);
+    const hasil = (v0 * t) + (0.5 * a * Math.pow(t, 2));
+    document.getElementById('perpindahanResult').innerText = `Perpindahan: ${hasil.toFixed(2)} meter`;
 }

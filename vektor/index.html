@@ -15,45 +15,55 @@
 
     <div class="container">
         <div class="operation">
-            <h2>Menentukan Resultan</h2>
-            <input type="number" id="X" placeholder="sumbu X " required>
-            <input type="number" id="Y" placeholder="sumbu Y" required>
-            <button onclick="addVectors()">Resultan</button>
-            <p id="addResult"></p>
+            <h2>Menentukan Besar Vektor</h2>
+            <input type="number" id="vektorX" placeholder="Komponen X" required>
+            <input type="number" id="vektorY" placeholder="Komponen Y" required>
+            <input type="number" id="vektorZ" placeholder="Komponen Z (opsional jika di kosongkan masukkan angka 0)" value="0">
+            <button onclick="hitungBesarVektor()">Hitung Besar Vektor</button>
+            <p id="hasilBesarVektor"></p>
         </div>
 
         <div class="operation">
-            <h2>Pengurangan Vektor</h2>
-            <input type="number" id="B1" placeholder="B1" required>
-            <input type="number" id="B2" placeholder="B2" required>
-            <button onclick="subtractVectors()">Hitung A - B</button>
-            <p id="subResult"></p>
+            <h2>Penjumlahan Vektor</h2>
+            <h3>Vektor A</h3>
+            <input type="number" id="vektorAX" placeholder="Komponen X" required>
+            <input type="number" id="vektorAY" placeholder="Komponen Y" required>
+            <input type="number" id="vektorAZ" placeholder="Komponen Z (opsionaljika di kosongkan masukkan angka 0)" value="0">
+            <h3>Vektor B</h3>
+            <input type="number" id="vektorBX" placeholder="Komponen X" required>
+            <input type="number" id="vektorBY" placeholder="Komponen Y" required>
+            <input type="number" id="vektorBZ" placeholder="Komponen Z (opsional jika di kosongkan masukkan angka 0)" value="0">
+            <button onclick="hitungPenjumlahanVektor()">Hitung A + B</button>
+            <p id="hasilPenjumlahanVektor"></p>
         </div>
 
         <div class="operation">
-            <h2>Menentukan Resultan dengan sudut</h2>
-            <input type="number" id="C1" placeholder="Sumbu X" required>
-            <input type="number" id="C2" placeholder="Sumbu Y" required>
-            <input type="number" id="C3" placeholder="Sudut" required>
-            <button onclick="sudutVectors()">Resultan</button>
-            <p id="sudutResult"></p>
+            <h2>Perkalian Dot (Dot Product)</h2>
+            <h3>Vektor A</h3>
+            <input type="number" id="dotAX" placeholder="Komponen X" required>
+            <input type="number" id="dotAY" placeholder="Komponen Y" required>
+            <input type="number" id="dotAZ" placeholder="Komponen Z (opsional jika di kosongkan masukkan angka 0)" value="0">
+            <h3>Vektor B</h3>
+            <input type="number" id="dotBX" placeholder="Komponen X" required>
+            <input type="number" id="dotBY" placeholder="Komponen Y" required>
+            <input type="number" id="dotBZ" placeholder="Komponen Z (opsional jika di kosongkan masukkan angka 0)" value="0">
+            <button onclick="hitungDotProduct()">Hitung A • B</button>
+            <p id="hasilDotProduct"></p>
         </div>
 
         <div class="operation">
-            <h2>Dot Product dua vektor</h2>
-            <input type="text" id="D1" placeholder="contoh: i, j, k" required>
-            <input type="text" id="D2" placeholder="contoh: i, j, k" required>
-            <button onclick="dotProduct()">Hitung A • B</button>
-            <p id="dotResult"></p>
+            <h2>Perkalian Silang (Cross Product)</h2>
+            <h3>Vektor A</h3>
+            <input type="number" id="crossAX" placeholder="Komponen X" required>
+            <input type="number" id="crossAY" placeholder="Komponen Y" required>
+            <input type="number" id="crossAZ" placeholder="Komponen Z" required>
+            <h3>Vektor B</h3>
+            <input type="number" id="crossBX" placeholder="Komponen X" required>
+            <input type="number" id="crossBY" placeholder="Komponen Y" required>
+            <input type="number" id="crossBZ" placeholder="Komponen Z" required>
+            <button onclick="hitungCrossProduct()">Hitung A × B</button>
+            <p id="hasilCrossProduct"></p>
         </div>
-
-        <!-- <div class="operation">
-            <h2>Cross Product</h2>
-            <input type="number" id="D1" placeholder="D1" required>
-            <input type="number" id="D2" placeholder="D2" required>
-            <button onclick="crossProduct()">Hitung A × B</button>
-            <p id="crossResult"></p>
-        </div> -->
     </div>
 
     <footer>

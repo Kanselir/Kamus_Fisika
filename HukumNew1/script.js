@@ -1,55 +1,80 @@
-function hukumnw() {
-    const A = document.getElementById('F').value;
-    const B = document.getElementById('F1').value;
-    const arrA = A.split(",").map(lol => parseInt(lol.trim()));
-    const arrB = B.split(",").map(lol => parseInt(lol.trim()));
-    let sumA = 0;
-    let sumB = 0;
-    for (let i = 0; i < arrA.length; i++){
-        sumA += arrA[i];
-    };
-    for (let i = 0; i < arrB.length; i++){
-        sumB += arrB[i];
-    };
-    const hasil = (sumA - sumB) * -1;
-    document.getElementById('Hasil').innerText = `hasil: ${hasil}`;
-}
+// function hukumnw() {
+//     const A = document.getElementById('F').value;
+//     const B = document.getElementById('F1').value;
+//     const arrA = A.split(",").map(lol => parseInt(lol.trim()));
+//     const arrB = B.split(",").map(lol => parseInt(lol.trim()));
+//     let sumA = 0;
+//     let sumB = 0;
+//     for (let i = 0; i < arrA.length; i++){
+//         sumA += arrA[i];
+//     };
+//     for (let i = 0; i < arrB.length; i++){
+//         sumB += arrB[i];
+//     };
+//     const hasil = (sumA - sumB) * -1;
+//     document.getElementById('Hasil').innerText = `hasil: ${hasil}`;
+// }
 
-function hitungKomponenGaya() {
-    const F = parseFloat(document.getElementById('Fa').value);  // besar gaya (F)
-    const Fx = parseFloat(document.getElementById('Fx').value);  // komponen gaya sumbu-x (Fx)
-    const Fy = parseFloat(document.getElementById('Fy').value);  // komponen gaya sumbu-y (Fy)
-    const theta = parseFloat(document.getElementById('theta').value);  // sudut (θ)
-
-    let sigmaFx = Fx;
-    let sigmaFy = Fy;
-    let gayaF = F;
-    let sudutTheta = theta;
-
-    if (!isNaN(gayaF) && !isNaN(sudutTheta) && isNaN(sigmaFx) && isNaN(sigmaFy)) {
-        // Jika F dan theta diisi, hitung Fx dan Fy
-        const thetaRad = sudutTheta * (Math.PI / 180);  // Konversi ke radian
-        sigmaFx = gayaF * Math.cos(thetaRad);
-        sigmaFy = gayaF * Math.sin(thetaRad);
-    } else if (!isNaN(sigmaFx) && !isNaN(sigmaFy) && isNaN(gayaF) && isNaN(sudutTheta)) {
-        // Jika Fx dan Fy diisi, hitung F dan theta
-        gayaF = Math.sqrt(sigmaFx * sigmaFx + sigmaFy * sigmaFy);  // F = sqrt(Fx^2 + Fy^2)
-        sudutTheta = Math.atan2(sigmaFy, sigmaFx) * (180 / Math.PI);  // θ = atan2(Fy, Fx), konversi ke derajat
-    } else if (!isNaN(gayaF) && !isNaN(sigmaFx) && isNaN(sigmaFy) && isNaN(sudutTheta)) {
-        // Jika F dan Fx diisi, hitung Fy dan theta
-        sigmaFy = Math.sqrt(gayaF * gayaF - sigmaFx * sigmaFx);  // Fy = sqrt(F^2 - Fx^2)
-        sudutTheta = Math.atan2(sigmaFy, sigmaFx) * (180 / Math.PI);  // θ = atan2(Fy, Fx)
-    } else if (!isNaN(gayaF) && !isNaN(sigmaFy) && isNaN(sigmaFx) && isNaN(sudutTheta)) {
-        // Jika F dan Fy diisi, hitung Fx dan theta
-        sigmaFx = Math.sqrt(gayaF * gayaF - sigmaFy * sigmaFy);  // Fx = sqrt(F^2 - Fy^2)
-        sudutTheta = Math.atan2(sigmaFy, sigmaFx) * (180 / Math.PI);  // θ = atan2(Fy, Fx)
-    } else {
-        // Jika input tidak valid atau kombinasi input salah
-        document.getElementById('hasil').innerText = "Input tidak valid atau kombinasi input salah. Isi dua nilai untuk menghitung yang lainnya.";
+function hitungResultanGayaHorizontal() {
+    const gayaKanan = parseFloat(document.getElementById('gayaKanan').value);
+    const gayaKiri = parseFloat(document.getElementById('gayaKiri').value);
+    
+    if (isNaN(gayaKanan) || isNaN(gayaKiri)) {
+        document.getElementById('hasilResultanGaya').innerText = "Mohon isi semua nilai dengan benar";
         return;
     }
 
-    // Tampilkan hasil
-    document.getElementById('hasil').innerText = 
-        `ΣFx: ${sigmaFx.toFixed(2)} N\nΣFy: ${sigmaFy.toFixed(2)} N\nF: ${gayaF.toFixed(2)} N\nSudut θ: ${sudutTheta.toFixed(2)}°`;
+    const resultan = gayaKanan - gayaKiri;
+    let status = "";
+    
+    if (resultan === 0) {
+        status = "Benda dalam keadaan seimbang (diam atau bergerak dengan kecepatan tetap)";
+    } else if (resultan > 0) {
+        status = "Benda akan bergerak ke kanan";
+    } else {
+        status = "Benda akan bergerak ke kiri";
+    }
+
+    document.getElementById('hasilResultanGaya').innerText = 
+        `Resultan Gaya = ${resultan.toFixed(2)} N\n${status}`;
+}
+
+function hitungKomponenGaya() {
+    const gaya = parseFloat(document.getElementById('gaya').value);
+    const sudut = parseFloat(document.getElementById('sudut').value);
+    
+    if (isNaN(gaya) || isNaN(sudut)) {
+        document.getElementById('hasilKomponenGaya').innerText = "Mohon isi semua nilai dengan benar";
+        return;
+    }
+
+    const sudutRad = sudut * (Math.PI / 180);
+    const Fx = gaya * Math.cos(sudutRad);
+    const Fy = gaya * Math.sin(sudutRad);
+
+    document.getElementById('hasilKomponenGaya').innerText = 
+        `Komponen Gaya:\nFx = ${Fx.toFixed(2)} N\nFy = ${Fy.toFixed(2)} N`;
+}
+
+function hitungResultanDariKomponen() {
+    const Fx = parseFloat(document.getElementById('gayaX').value);
+    const Fy = parseFloat(document.getElementById('gayaY').value);
+    
+    if (isNaN(Fx) || isNaN(Fy)) {
+        document.getElementById('hasilResultanDariKomponen').innerText = "Mohon isi semua nilai dengan benar";
+        return;
+    }
+
+    const resultan = Math.sqrt(Fx * Fx + Fy * Fy);
+    const sudut = Math.atan2(Fy, Fx) * (180 / Math.PI);
+    let status = "";
+
+    if (resultan === 0) {
+        status = "Benda dalam keadaan seimbang (diam atau bergerak dengan kecepatan tetap)";
+    } else {
+        status = "Benda akan bergerak dengan resultan gaya " + resultan.toFixed(2) + " N";
+    }
+
+    document.getElementById('hasilResultanDariKomponen').innerText = 
+        `Resultan Gaya = ${resultan.toFixed(2)} N\nSudut = ${sudut.toFixed(2)}°\n${status}`;
 }

@@ -9,39 +9,38 @@
 <body>
     <header>
         <h1>Kalkulator Hukum Newton I</h1>
-        <p>Hitung operasi Hukum Newton I dengan mudah!</p>
+        <p>Hitung resultan gaya sesuai Hukum Newton I (Hukum Kelembaman) dengan mudah!</p>
         <a href="../index.html" class="back-button">Kembali ke Dashboard</a>
     </header>
 
     <div class="container">
         <div class="operation">
-            <h2>Masukkan semua gaya</h2>
-            <input type="text" id="F" placeholder="∑F (semua gaya yang ke kanan)" required>
-            <input type="text" id="F1" placeholder="∑F (semua gaya yang ke kiri)" required>
-            <button onclick="hukumnw()">HK 1</button>
-            <p id="Hasil">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Menentukan Fx dan Fy</h2>
-            <input type="text" id="Fa" placeholder="F (dalam besaran Newton)" required>
-            <input type="text" id="Fx" placeholder="Fx (dalam besaran Newton)" required>
-            <input type="text" id="Fy" placeholder="Fy (dalam besaran Newton)" required>
-            <input type="text" id="theta" placeholder="masukkan besar sudut" required>
-            <button onclick="hitungKomponenGaya()">HK 1</button>
-            <p id="hasil">hasil</p>
-        </div>
-        <div class="link">
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
+            <h2>Menentukan Resultan Gaya Horizontal</h2>
+            <input type="number" id="gayaKanan" placeholder="Masukkan gaya ke kanan (N)" required>
+            <input type="number" id="gayaKiri" placeholder="Masukkan gaya ke kiri (N)" required>
+            <button onclick="hitungResultanGayaHorizontal()">Hitung Resultan Gaya</button>
+            <p id="hasilResultanGaya"></p>
         </div>
 
+        <div class="operation">
+            <h2>Menentukan Resultan Gaya 2D</h2>
+            <input type="number" id="gaya" placeholder="Masukkan besar gaya (N)" required>
+            <input type="number" id="sudut" placeholder="Masukkan sudut (derajat)" required>
+            <button onclick="hitungKomponenGaya()">Hitung Komponen Gaya</button>
+            <p id="hasilKomponenGaya"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Menentukan Resultan Gaya dari Komponen</h2>
+            <input type="number" id="gayaX" placeholder="Masukkan gaya sumbu X (N)" required>
+            <input type="number" id="gayaY" placeholder="Masukkan gaya sumbu Y (N)" required>
+            <button onclick="hitungResultanDariKomponen()">Hitung Resultan Gaya</button>
+            <p id="hasilResultanDariKomponen"></p>
+        </div>
     </div>
 
     <footer>
-        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+        <p>© 2024 Kalkulator Hukum Newton I. by: Akmal.</p>
     </footer>
 
     <script src="script.js"></script>

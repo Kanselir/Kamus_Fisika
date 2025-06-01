@@ -9,47 +9,50 @@
 <body>
     <header>
         <h1>Kalkulator GLBB</h1>
-        <p>Hitung operasi GLBB dengan mudah!</p>
+        <p>Hitung operasi Gerak Lurus Berubah Beraturan (GLBB) dengan mudah!</p>
         <a href="../index.html" class="back-button">Kembali ke Dashboard</a>
     </header>
 
     <div class="container">
         <div class="operation">
-            <h2>Menentukan jarak</h2>
-            <input type="number" id="V" placeholder="Masukkan kecepatan (m)" required>
+            <h2>Menentukan Kecepatan Akhir</h2>
+            <input type="number" id="v0" placeholder="Masukkan kecepatan awal (m/s)" required>
+            <input type="number" id="a" placeholder="Masukkan percepatan (m/s²)" required>
             <input type="number" id="t" placeholder="Masukkan waktu (s)" required>
-            <button onclick="addjarak()">Hasil</button>
-            <p id="addResult"></p>
+            <button onclick="hitungKecepatanAkhir()">Hitung Kecepatan Akhir</button>
+            <p id="kecepatanAkhirResult"></p>
         </div>
 
         <div class="operation">
-            <h2>Perhitungan Perpindahan</h2>
-            <input type="number" id="Vp" placeholder="Masukkan kecepatan (m)" required>
-            <input type="number" id="tp" placeholder="Masukkan waktu (s)" required>
-            <button onclick="perpindahan()">Hasil</button>
-            <p id="subResult"> hasil</p>
+            <h2>Menentukan Jarak</h2>
+            <input type="number" id="v0J" placeholder="Masukkan kecepatan awal (m/s)" required>
+            <input type="number" id="aJ" placeholder="Masukkan percepatan (m/s²)" required>
+            <input type="number" id="tJ" placeholder="Masukkan waktu (s)" required>
+            <button onclick="hitungJarak()">Hitung Jarak</button>
+            <p id="jarakResult"></p>
         </div>
 
         <div class="operation">
-            <h2>Perhitungan Kecepatan</h2>
-            <input type="number" id="PK" placeholder="Masukkan perpindahan (m)" required>
-            <input type="number" id="WK" placeholder="Masukkan waktu (s)" required>
-            <button onclick="kecepatatan()">Hasil</button>
-            <p id="kecepatanResult"> hasil</p>
+            <h2>Menentukan Kecepatan Akhir (Tanpa Waktu)</h2>
+            <input type="number" id="v0K" placeholder="Masukkan kecepatan awal (m/s)" required>
+            <input type="number" id="aK" placeholder="Masukkan percepatan (m/s²)" required>
+            <input type="number" id="sK" placeholder="Masukkan jarak (m)" required>
+            <button onclick="hitungKecepatanAkhirTanpaWaktu()">Hitung Kecepatan Akhir</button>
+            <p id="kecepatanAkhirTanpaWaktuResult"></p>
         </div>
 
         <div class="operation">
-            <h2>Perhitungan Laju</h2>
-            <input type="number" id="JL" placeholder="Masukkan jarak (m)" required>
-            <input type="number" id="WL" placeholder="Masukkan waktu (s)" required>
-            <button onclick="laju()">Hasil</button>
-            <p id="lajuResult"> hasil</p>
+            <h2>Menentukan Perpindahan</h2>
+            <input type="number" id="v0P" placeholder="Masukkan kecepatan awal (m/s)" required>
+            <input type="number" id="aP" placeholder="Masukkan percepatan (m/s²)" required>
+            <input type="number" id="tP" placeholder="Masukkan waktu (s)" required>
+            <button onclick="hitungPerpindahan()">Hitung Perpindahan</button>
+            <p id="perpindahanResult"></p>
         </div>
-
     </div>
 
     <footer>
-        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+        <p>© 2024 Kalkulator GLBB. by: Akmal.</p>
     </footer>
 
     <script src="script.js"></script>

@@ -15,49 +15,50 @@
 
     <div class="container">
         <div class="operation">
-            <h2>Hitung Cepat Rambat Gelombang</h2>
-            <input type="text" id="F" placeholder="λ (panjang gelombang dalam meter)" required>
-            <input type="text" id="F1" placeholder="T (periode dalam detik)" required>
-            <button onclick="hitungCepatRambat()">Hitung v = λ/T</button>
-            <p id="Hasil">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Hitung Frekuensi Gelombang</h2>
-            <input type="text" id="Fa" placeholder="v (cepat rambat dalam m/s)" required>
-            <input type="text" id="Fx" placeholder="λ (panjang gelombang dalam meter)" required>
-            <input type="text" id="Fy" placeholder="T (periode dalam detik)" required>
-            <input type="text" id="theta" placeholder="A (amplitudo dalam meter)" required>
-            <button onclick="hitungFrekuensi()">Hitung f = 1/T</button>
-            <p id="hasil">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Hitung Panjang Gelombang</h2>
-            <input type="text" id="v1" placeholder="v (cepat rambat dalam m/s)" required>
-            <input type="text" id="T1" placeholder="T (periode dalam detik)" required>
-            <button onclick="hitungPanjangGelombang()">Hitung λ = v × T</button>
-            <p id="hasilPanjang">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Hitung Periode Gelombang</h2>
-            <input type="text" id="lambda1" placeholder="λ (panjang gelombang dalam meter)" required>
-            <input type="text" id="v2" placeholder="v (cepat rambat dalam m/s)" required>
-            <button onclick="hitungPeriode()">Hitung T = λ/v</button>
-            <p id="hasilPeriode">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Hitung Amplitudo Gelombang</h2>
-            <input type="text" id="ymax" placeholder="y max (simpangan maksimum dalam meter)" required>
-            <button onclick="hitungAmplitudo()">Hitung A = y max</button>
-            <p id="hasilAmplitudo">hasil</p>
-        </div>
-        <div class="link">
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
-            <a href="">Kembali</a>
+            <h2>Cepat Rambat Gelombang (v)</h2>
+            <p>v = λ × f = λ/T</p>
+            <input type="number" id="lambda" placeholder="λ (panjang gelombang dalam meter)" required>
+            <input type="number" id="frekuensi" placeholder="f (frekuensi dalam Hz)" required>
+            <button onclick="hitungCepatRambat()">Hitung Cepat Rambat</button>
+            <p id="hasilCepatRambat"></p>
         </div>
 
+        <div class="operation">
+            <h2>Frekuensi Gelombang (f)</h2>
+            <p>f = 1/T = v/λ</p>
+            <input type="number" id="periode" placeholder="T (periode dalam detik)" required>
+            <button onclick="hitungFrekuensi()">Hitung Frekuensi</button>
+            <p id="hasilFrekuensi"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Panjang Gelombang (λ)</h2>
+            <p>λ = v/f = v × T</p>
+            <input type="number" id="cepatRambat" placeholder="v (cepat rambat dalam m/s)" required>
+            <input type="number" id="frekuensiLambda" placeholder="f (frekuensi dalam Hz)" required>
+            <button onclick="hitungPanjangGelombang()">Hitung Panjang Gelombang</button>
+            <p id="hasilPanjangGelombang"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Periode Gelombang (T)</h2>
+            <p>T = 1/f = λ/v</p>
+            <input type="number" id="frekuensiPeriode" placeholder="f (frekuensi dalam Hz)" required>
+            <button onclick="hitungPeriode()">Hitung Periode</button>
+            <p id="hasilPeriode"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Persamaan Gelombang</h2>
+            <p>y = A sin(2πft - 2πx/λ)</p>
+            <input type="number" id="amplitudo" placeholder="A (amplitudo dalam meter)" required>
+            <input type="number" id="frekuensiGelombang" placeholder="f (frekuensi dalam Hz)" required>
+            <input type="number" id="waktu" placeholder="t (waktu dalam detik)" required>
+            <input type="number" id="jarak" placeholder="x (jarak dalam meter)" required>
+            <input type="number" id="panjangGelombang" placeholder="λ (panjang gelombang dalam meter)" required>
+            <button onclick="hitungSimpangan()">Hitung Simpangan</button>
+            <p id="hasilSimpangan"></p>
+        </div>
     </div>
 
     <footer>

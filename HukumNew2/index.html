@@ -9,45 +9,38 @@
 <body>
     <header>
         <h1>Kalkulator Hukum Newton II</h1>
-        <p>Hitung operasi Hukum Newton II dengan mudah!</p>
+        <p>Hitung operasi Hukum Newton II (F = ma) dengan mudah!</p>
         <a href="../index.html" class="back-button">Kembali ke Dashboard</a>
     </header>
 
     <div class="container">
-        <!-- <div class="operation">
-            <h2>Menentukan F</h2>
-            <input type="text" id="m" placeholder="m (dalam kg)" required>
-            <input type="text" id="a" placeholder="a (dalam m/s²)" required>
-            <button onclick="hitungGaya()">F</button>
-            <p id="HasilF">hasil</p>
-        </div>
         <div class="operation">
-            <h2>Menentukan m</h2>
-            <input type="text" id="F" placeholder="F (dalam Newton)" required>
-            <input type="text" id="a" placeholder="a (dalam m/s²)" required>
-            <button onclick="hitungMassa()">m</button>
-            <p id="Hasilm">hasil</p>
-        </div>
-        <div class="operation">
-            <h2>Menentukan a</h2>
-            <input type="text" id="F" placeholder="F (dalam Newton)" required>
-            <input type="text" id="m" placeholder="m (dalam kg)" required>
-            <button onclick="hitungPercepatan()">a</button>
-            <p id="Hasila">hasil</p>
-        </div> -->
-        <div class="operation">
-            <h2>Menentukan semua</h2>
-            <input type="text" id="F" placeholder="F (dalam Newton)" required>
-            <input type="text" id="a" placeholder="a (dalam m/s²)" required>
-            <input type="text" id="m" placeholder="m (dalam kg)" required>
-            <button onclick="hitung()">a</button>
-            <p id="hasil">hasil</p>
+            <h2>Menentukan Gaya (F)</h2>
+            <input type="number" id="m1" placeholder="Masukkan massa (kg)" required>
+            <input type="number" id="a1" placeholder="Masukkan percepatan (m/s²)" required>
+            <button onclick="hitungGaya()">Hitung Gaya</button>
+            <p id="hasilGaya"></p>
         </div>
 
+        <div class="operation">
+            <h2>Menentukan Massa (m)</h2>
+            <input type="number" id="F2" placeholder="Masukkan gaya (N)" required>
+            <input type="number" id="a2" placeholder="Masukkan percepatan (m/s²)" required>
+            <button onclick="hitungMassa()">Hitung Massa</button>
+            <p id="hasilMassa"></p>
+        </div>
+
+        <div class="operation">
+            <h2>Menentukan Percepatan (a)</h2>
+            <input type="number" id="F3" placeholder="Masukkan gaya (N)" required>
+            <input type="number" id="m3" placeholder="Masukkan massa (kg)" required>
+            <button onclick="hitungPercepatan()">Hitung Percepatan</button>
+            <p id="hasilPercepatan"></p>
+        </div>
     </div>
 
     <footer>
-        <p>© 2024 Kalkulator Vektor. by: Akmal.</p>
+        <p>© 2024 Kalkulator Hukum Newton II. by: Akmal.</p>
     </footer>
 
     <script src="script.js"></script>
